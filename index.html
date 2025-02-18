@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Verb Conjugator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Spanish Verb Conjugator</h1>
+        <div class="nav-buttons">
+            <a href="aboutus.html" class="nav-btn">About Us</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="description">
+            <p>Master Spanish verb conjugations with our powerful and intuitive tool. Whether you're a beginner or advanced learner, our conjugator helps you:</p>
+            <ul>
+                <li>Learn conjugations for all Spanish tenses</li>
+                <li>Learn different verb forms and their usage</li>
+                <li>Listen to correct pronunciation</li>
+                <li>Get English translations and meanings</li>
+            </ul>
+        </div>
+        <a href="home.html" class="cta-button">Try It For Free</a>
+    </div>
+    <div class="custom-cursor"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.custom-cursor');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Add hover effect for clickable elements
+    const clickables = document.querySelectorAll('a, button');
+    clickables.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    });
+});
+</script>
+</body>
+</html>
