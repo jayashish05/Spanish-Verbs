@@ -11,6 +11,7 @@
     <header>
         <h1>Spanish Verb Conjugator</h1>
         <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
             <a href="aboutus.html" class="nav-btn">About Us</a>
         </div>
     </header>
@@ -26,29 +27,5 @@
         </div>
         <a href="home.html" class="cta-button">Try It For Free</a>
     </div>
-    <div class="custom-cursor"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const cursor = document.querySelector('.custom-cursor');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    // Add hover effect for clickable elements
-    const clickables = document.querySelectorAll('a, button');
-    clickables.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
-});
-</script>
 </body>
 </html>

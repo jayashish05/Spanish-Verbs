@@ -131,6 +131,7 @@ main {
     header {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
 
     .nav-buttons {
@@ -140,6 +141,27 @@ main {
 
     .team-container {
         padding: 1rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .team-card {
+        width: 280px;
+        padding: 1.8rem;
+    }
+
+    .card-image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .team-card h2 {
+        font-size: 1.3rem;
     }
 }
 
@@ -156,10 +178,57 @@ main {
     .nav-btn {
         width: 100%;
         text-align: center;
+        padding: 0.6rem 1rem;
     }
 
     .team-card {
         width: 100%;
+        max-width: 320px;
         padding: 1.5rem;
+    }
+
+    .team-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .team-card .role {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .team-card {
+        padding: 1.2rem;
+    }
+    
+    .card-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1.2rem;
+    }
+    
+    .team-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .team-card .description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Add touchscreen support for hover effects */
+@media (hover: none) {
+    .team-card:hover, .nav-btn:hover {
+        transform: none;
+        box-shadow: none;
     }
 } 

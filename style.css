@@ -124,6 +124,7 @@ header h1 {
     header {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
 
     .nav-buttons {
@@ -133,7 +134,27 @@ header h1 {
 
     .container {
         padding: 1rem;
-        margin: 1rem;
+        margin: 1rem auto;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .description p {
+        font-size: 1rem;
+    }
+
+    .description li {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.9rem 1.5rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -150,14 +171,45 @@ header h1 {
     .nav-btn {
         width: 100%;
         text-align: center;
+        padding: 0.6rem 1rem;
     }
 
     .description {
         padding: 1.5rem;
+        border-radius: 15px;
     }
 
     .cta-button {
         width: 100%;
         text-align: center;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .description {
+        padding: 1.2rem;
+    }
+    
+    .description p, .description li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add touchscreen support for hover effects */
+@media (hover: none) {
+    .cta-button:hover, .nav-btn:hover {
+        transform: none;
+        box-shadow: none;
     }
 }

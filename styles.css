@@ -180,7 +180,7 @@ button:active {
     border: none;
     background: transparent;
     border-radius: 50%;
-    color: #0ef;
+    color: #00eeff;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -202,8 +202,6 @@ button:active {
 .speak-btn-container:hover .speak-btn {
     color: #0ef;
 }
-
-/* Active state animations */
 main.active {
     justify-content: flex-start;
 }
@@ -229,27 +227,40 @@ main.active #results {
         transform: translateX(0);
     }
 }
-
-/* Responsive design */
 @media (max-width: 992px) {
     main {
         flex-direction: column;
         align-items: center;
         padding: 1rem;
+        min-height: auto;
+    }
+
+    main.active {
+        justify-content: center;
+    }
+
+    main.active .input-section {
+        transform: none;
+        margin-bottom: 2rem;
     }
 
     .input-section {
         width: 100%;
         max-width: 500px;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
     }
 
     #results {
         width: 100%;
         max-width: 500px;
-        margin-top: 2rem;
+        margin-top: 1rem;
+        transform: none;
+        padding: 1.5rem;
     }
 
     header {
+        padding: 1rem;
         flex-direction: column;
         gap: 1rem;
     }
@@ -260,11 +271,35 @@ main.active #results {
     }
 }
 
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .tense h3 {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .conjugation-item {
+        padding: 0.6rem 1rem;
+    }
+}
+
 @media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+
     .input-section, #results {
-        padding: 1.5rem;
+        padding: 1.2rem;
+        border-radius: 15px;
     }
     
+    header {
+        padding: 0.8rem;
+    }
+
     header h1 {
         font-size: 1.5rem;
     }
@@ -277,6 +312,93 @@ main.active #results {
     .nav-btn {
         width: 100%;
         text-align: center;
+        padding: 0.6rem 1rem;
+    }
+
+    input, button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .conjugation-item {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .tense h3 {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    ul {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    li {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.6rem;
+    }
+
+    .speak-btn-container,
+    .speaker-btn,
+    li button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .speak-btn i,
+    .speaker-btn i {
+        font-size: 0.8rem;
+    }
+
+    .spinner-container lottie-player,
+    .translations-loading-container lottie-player {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .translations-loading-container p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .input-section, #results {
+        padding: 1rem;
+    }
+
+    input, button {
+        padding: 0.7rem;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    input, button, label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add touchscreen support for hover effects */
+@media (hover: none) {
+    button:hover, .nav-btn:hover, .speak-btn-container:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    input:focus {
+        transform: none;
     }
 }
 
@@ -305,7 +427,6 @@ li {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Staggered animation delay for each li element */
 li:nth-child(1) { animation-delay: 0s; }
 li:nth-child(2) { animation-delay: 0s; }
 li:nth-child(3) { animation-delay: 0s; }
@@ -364,7 +485,6 @@ ul{
     margin-bottom: 0.5rem;
 }
 
-/* Speaker button styles */
 .speaker-btn {
     width: 35px;
     height: 35px;
@@ -390,8 +510,6 @@ ul{
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
     transform: scale(1.05);
 }
-
-/* Add pulse animation to the speak buttons */
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 238, 255, 0.4);
@@ -404,7 +522,6 @@ ul{
     }
 }
 
-/* Enhance list item animations */
 li {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -412,8 +529,6 @@ li {
 li:hover {
     transform: translateX(5px) scale(1.02);
 }
-
-/* Update slideUpFade keyframes to ensure proper opacity handling */
 @keyframes slideUpFade {
     0% {
         opacity: 0;
@@ -428,6 +543,7 @@ li:hover {
 .nav-buttons {
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .nav-btn {
@@ -441,10 +557,98 @@ li:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
     background: rgba(0, 238, 255, 0.2);
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.3);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    margin: 20px auto;
+    color: #007bff;
+}
+
+/* Add loading spinner styles */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(0, 238, 255, 0.2);
+    border-top: 5px solid #0ef;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulse effect for the spinner */
+.spinner-pulse {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(0, 238, 255, 0.2);
+    animation: pulse-animation 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Lottie animation container styles */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+}
+
+.translations-loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.translations-loading-container p {
+    margin-bottom: 1rem;
+    color: #0ef;
+    font-size: 1.1rem;
 }
